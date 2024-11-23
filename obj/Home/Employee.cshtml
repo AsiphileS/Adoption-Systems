@@ -1,0 +1,198 @@
+﻿<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Adoption systems</title>
+
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href=@Url.Content("~/content/css/bootstrap.css" ) />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Poppins:400,700|Roboto:400,700&display=swap" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href=@Url.Content("~/content/css/style.css") rel="stylesheet" />
+    <!-- responsive style -->
+    <link href=@Url.Content("~/content/css/responsive.css") rel="stylesheet" />
+</head>
+
+<body>
+    <header class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a class="navbar-brand" href="@Url.Action("Index","Home")">
+
+                    <img src="~/content/images/logo.png" alt="" />
+                    <span>
+                        The perfect Adoption Systems
+                    </span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+</body>
+@model Adoption_system.Models.Employee
+<h2>Employee</h2>
+<div class="wrapper">
+    @using (Html.BeginForm("Employee", "Home", FormMethod.Post))
+    {
+
+        @Html.ValidationSummary(true)
+        if (@ViewBag.Message != null)
+        {
+            <div style="color; font-size:15px;">
+                @ViewBag.Message
+            </div>
+
+
+        }
+        <h1>Login</h1>
+
+        <div class="input-box">
+            @Html.TextBoxFor(m => m.Username, new { placeholder = "Username" })
+            <i class='bx bxs-user'></i>
+            @Html.ValidationMessageFor(m => m.Username)
+        </div>
+        <div class="input-box">
+            @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+            <i class='bx bxs-lock-alt'></i>
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+        <button type="submit" class="btn">Login</button>
+
+    }
+</div>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    body {
+        /*display: table-footer-group;*/
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #cfe788;
+    }
+
+    .wrapper {
+        width: 420px;
+        margin-top: 50px;
+        margin-left: 30%;
+        background: #678119;
+        border: 2px solid rgba(255, 255, 255, .2);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+        color: #fff;
+        border-radius: 10px;
+        padding: 30px 40px;
+    }
+
+        .wrapper h1 {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .wrapper .input-box {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            margin: 30px auto; /* Added auto to center horizontally */
+        }
+
+    .input-box input {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        border: 2px solid rgba(255, 255, .2);
+        border-radius: 40px;
+        font-size: 16px;
+        color: #fff;
+        padding: 20px 45px 20px 20px;
+        box-sizing: border-box; /* Added to include padding in width */
+    }
+
+        .input-box input::placeholder {
+            color: #fff;
+        }
+
+    .input-box i {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+    }
+
+
+    .wrapper .remember-forgot {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14.5px;
+        margin: -15px 0 15px;
+    }
+
+    .remember-forgot label input {
+        accent-color: #fff;
+        margin-right: 3px;
+    }
+
+    .remember-forgot a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+        .remember-forgot a:hover {
+            text-decoration: underline;
+        }
+
+    .wrapper .btn {
+        width: 100%;
+        height: 45px;
+        background: #fff;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        box-shadow: 0 0 10px rgba(0,0,0, .1);
+        cursor: pointer;
+        font-size: 16px;
+        color: #333;
+        font-weight: 600;
+    }
+
+    .wrapper .register-link {
+        font-size: 14.5px;
+        text-align: center;
+        margin: 20px 0 15px;
+    }
+
+    .register-link p a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+        .register-link p a:hover {
+            text-decoration: underline;
+            color: #cfe788;
+        }
+</style>
